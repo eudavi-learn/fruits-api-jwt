@@ -1,24 +1,43 @@
-# README
+# Fruit Rails API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ `Rails Version 5.2.3`
 
-Things you may want to cover:
+### Clone the repository
 
-* Ruby version
+```shell
+git clone https://github.com/Davigl/fruits-api-jwt.git
+cd fruits-api-jwt
+```
 
-* System dependencies
+### Check your Ruby version
 
-* Configuration
+```shell
+ruby -v
+```
 
-* Database creation
+The ouput should start with something like `ruby 2.5.3`
 
-* Database initialization
+If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv) (it could take a while):
 
-* How to run the test suite
+```shell
+rbenv install 2.5.3
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Install dependencies
 
-* Deployment instructions
 
-* ...
+```shell
+bundle install
+```
+
+### Initialize the database
+
+```shell
+rails db:create db:migrate
+```
+
+## Server
+
+```shell
+rails s
+```
