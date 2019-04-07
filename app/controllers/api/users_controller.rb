@@ -1,18 +1,30 @@
-class UsersController < ActionController::API
+class Api::UsersController < ActionController::API
+
+  before_action :set_user, only: [:show]
+
   def create
   	@user = User.new(user_params)
-
-  	if @user.save!
-  		render json: user.as_json(only: [:id, :email]), status: :created
-  	else
-
+  	
+    if @user.save
+  		render json: { data: @user.as_json(only: [:name, :email]), status: 201 }
+    else
+      render json: { data: nil, status: 422, messages: @user.errors.full_messages }
   	end
   end
 
-  def destroy
+  def show
+    if @user
+      render json: { data: @user.as_json(only: [:name, :email]), status: 200 }
+    else 
+      render json: { data: [], status: 204, message: 'Usuário não encontrado.' }
+    end
   end
 
   private
+
+  def set_user
+    @user = User.find_by_id(params[:id])
+  end
 
   def user_params
   	params.require(:user).permit(:name, :email, :password, :password_confirmation)
