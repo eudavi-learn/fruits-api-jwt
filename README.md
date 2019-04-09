@@ -33,7 +33,7 @@ bundle install
 ### Initialize the database
 
 ```shell
-rails db:create db:migrate
+rake db:create db:migrate
 ```
 
 ## Server
