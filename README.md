@@ -1,5 +1,7 @@
 # Fruit Rails API
 
+ `To be added JSON serializers..`
+ 
  `Rails Version 5.2.3`
 
 ### Clone the repository
